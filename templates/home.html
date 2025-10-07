@@ -1,3 +1,40 @@
-<h1>
-    Hello World
-</h1>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Boston House Price Prediction</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+</head>
+
+<body>
+    <div class="container mt-5">
+        <div class="card shadow p-4">
+            <h2 class="text-center mb-4">Boston House Price Prediction</h2>
+            <form action="{{ url_for('predict') }}" method="post">
+                <div class="form-group">
+                    <input type="text" name="CRIM" placeholder="CRIM" required="required" class="form-control mb-2">
+                    <input type="text" name="ZN" placeholder="ZN" required="required" class="form-control mb-2">
+                    <input type="text" name="INDUS" placeholder="INDUS" required="required" class="form-control mb-2">
+                    <input type="text" name="CHAS" placeholder="CHAS" required="required" class="form-control mb-2">
+                    <input type="text" name="NOX" placeholder="NOX" required="required" class="form-control mb-2">
+                    <input type="text" name="RM" placeholder="RM" required="required" class="form-control mb-2">
+                    <input type="text" name="AGE" placeholder="AGE" required="required" class="form-control mb-2">
+                    <input type="text" name="DIS" placeholder="DIS" required="required" class="form-control mb-2">
+                    <input type="text" name="RAD" placeholder="RAD" required="required" class="form-control mb-2">
+                    <input type="text" name="TAX" placeholder="TAX" required="required" class="form-control mb-2">
+                    <input type="text" name="PTRATIO" placeholder="PTRATIO" required="required" class="form-control mb-2">
+                    <input type="text" name="B" placeholder="B" required="required" class="form-control mb-2">
+                    <input type="text" name="LSTAT" placeholder="LSTAT" required="required" class="form-control mb-2">
+                </div>
+                <button type="submit" class="btn btn-primary btn-block btn-lg">Predict</button>
+            </form>
+            {% if prediction_text %}
+                <div class="alert alert-info text-center mt-4">
+                    {{ prediction_text }}
+                </div>
+            {% endif %}
+        </div>
+    </div>
+</body>
+</html>
